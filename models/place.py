@@ -3,6 +3,7 @@
 from models.base_model import BaseModel
 from sqlalchemy.Column import Column, string, ForeignKey, Integer, Float
 from sqlalchemy.ext.declarative import declarative_base
+from squalchemy.orm import relationship
 
 #class Place(BaseModel):
 #    """ A place to stay """
@@ -31,3 +32,5 @@ class place(Base):
     price_by_night = Column(Integer, nullable=False, default = 0)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
+
+    reviews = relationship('Review', backref = 'place', cascade = 'all, delete-orphan')
