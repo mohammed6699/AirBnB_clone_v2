@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ City Module for HBNB project """
-from models.base_model import BaseModel
-from squalchamy.orm import relaionship
-from squalchemy import Column, String
-from sqlalchemy.ext.declarative import declarative_base
+from models.base_model import BaseModel, Base
+from squalchamy.orm import relaionship, backref
+from squalchemy import Column, String, ForeignKey
+from models.state import State
 
 
 #class City(BaseModel):
@@ -12,9 +12,8 @@ from sqlalchemy.ext.declarative import declarative_base
 #    name = ""
 
 class City(Base):
-    __tablename__ = 'Cities'
-
-    state_id = Column(string(60), nullable = False)
-    name = Column(string(128), nullable = False)
-
-    places = relationship('place', backref = 'citis', cascade='all, delete-orphan')
+    """Define the class city"""
+    __tablename__ = 'cities'
+    state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
+    name = Column(String(128), nullable=False)
+    places = relationship('Place', cascade="all, delete", backref='cities')
