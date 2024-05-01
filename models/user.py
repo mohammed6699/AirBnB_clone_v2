@@ -6,6 +6,7 @@ from squalchemy.orm import relationship
 
 
 class user(BaseModel, Base):
+    """User calss"""
     __tablename__ = 'user'
     email = Column(String(128), nullable = False)
     password = Column(String(128), nullable = False)
