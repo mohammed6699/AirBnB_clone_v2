@@ -8,10 +8,8 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
     def delete(self, obj=None):
-        if obj = None:
-            return
-        else:
-            del self.__objects[obj.__class__.__name__ + '.' + obj.id]
+        FileStorage.__objects = {k: v for k, v in FileStorage.__objects.items()
+                                 if v != obj}
     def all(self, cls=None):
         if cls is None:
             return list(FileStorage.__objects())
