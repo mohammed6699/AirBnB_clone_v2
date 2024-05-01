@@ -9,7 +9,8 @@ class FileStorage:
     __objects = {}
     def delete(self, obj=None):
         """Deletes an object from __objects if exists."""
-        FileStorage.__objects = {k: v for k, v in FileStorage.__objects.items()
+        if obj:
+            FileStorage.__objects = {k: v for k, v in FileStorage.__objects.items()
                                  if v != obj}
     def all(self, cls=None):
         """Return the dictionary"""
