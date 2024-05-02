@@ -140,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
                         value = int(value)
                 except ValueError:
                     pass
-                param_dict[key] = value
+            param_dict[key] = value
 
         new_instance = HBNBCommand.classesclass_name
         new_instance.save()
