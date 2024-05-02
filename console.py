@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         elif args in HBNBCommand.classes:
-            new_instance = classes[args[0]]()
+            new_instance = class_name[args[0]]()
             for param in param[1:]:
                 key = param.split("=")[0]
                 value = param.split("=")[1].replace("_", " ")
