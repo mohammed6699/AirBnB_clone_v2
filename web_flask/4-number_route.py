@@ -3,8 +3,8 @@ from flask import Flask
 
 app = Flask(__name__)
 app.url_map.strict_slashes=False
-@app.route("/")
 
+@app.route("/")
 def hello_world():
     return 'Hello HBNB!'
 
@@ -16,9 +16,9 @@ def hbnb():
 def c_is_fun(text):
     return 'C {}'.format(text.replace('_', ' '))
 
-@app.route('/python', defaults={'text': 'is cool'})
+@app.route('/python/')
 @app.route('/python/<text>')
-def python_is_cool(text):
+def python_is_cool(text= 'is cool'):
     return 'Python {}'.format(text.replace('_', ' '))
 
 @app.route('/number/<int:n>')
