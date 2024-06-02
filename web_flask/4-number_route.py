@@ -8,18 +8,22 @@ app.url_map.strict_slashes=False
 def hello_world():
     return 'Hello HBNB!'
 
+
 @app.route("/hbnb")
 def hbnb():
     return 'HBNB'
+
 
 @app.route('/c/<text>')
 def c_is_fun(text):
     return 'C {}'.format(text.replace('_', ' '))
 
-@app.route('/python/')
+
+@app.route('/python', defaults={'text': 'is cool'})
 @app.route('/python/<text>')
-def python_is_cool(text= 'is cool'):
+def python_is_cool(text):
     return 'Python {}'.format(text.replace('_', ' '))
+
 
 @app.route('/number/<int:n>')
 def n_is_number(n):
